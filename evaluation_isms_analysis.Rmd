@@ -1,0 +1,172 @@
+---
+title: "Isms PHiR 2015 Evaluation"
+author: "mgutilla"
+date: "Saturday, October 10, 2015"
+output: html_document
+---
+This is a summary of evaluation data from a Public Health in the Rockies, held in Vail, Colorado September 16-18, 2015 
+
+---------------------------------------------------------------------------
+# Session: *"Intersectionalism: How multiple identities influence health"*.
+
+**Presenters: Molly Gutilla, Erin McKay, Suzuho Shimasaki, and Kory Thomas**
+
+## Write-in Responses
+
+### What was the most valuable thing you learned in this session?
+* How to have conversations about isms
+* Steps to take for having these conversations
+* Great conversations and new approaches to address difficult topics/issues
+* First listen
+* The skill of how to address or begin a conversation
+* I enjoyed that timeline exercise and staring about assumptions. I found the conversations around gender identity fascinating
+* The discussions, the honesty
+* Thank you! This was a helpful start
+* How to address uncomfortable situations at work and in my personal life
+* Triggers and how to start the conversation
+* Role playing
+* I liked the difficult planning conversations planning worksheet
+* Techniques and examples to start tough conversations
+* Always good to take allotted time to think about these topics
+* That not listening or taking action = participating in oppression
+* Recognizing and addressing isms
+
+### How could the session be improved?
+* Would be great for a "201" version of changing our practices/programs to begin addressing isms
+* More time to role play - less time on intro to isms
+* More strategies for finding the space and opportunities to have these conversations
+* I would have like to learn a few key phrases for the first line of the conversation - I think that's the hardest parting - knowing how to start
+* Offer it to CDPHE
+* More group discussion, a little less history
+* More time
+* Longer. What do you do when you hear implicit bias emerge from an ethnic group you aren't a part of? Isn't that condescending?
+* It was great!
+* Some concrete examples of how to start a conversation that is tough
+* Provide handouts w/concrete examples of conversation starters. Also examples of how to re-center yourself. Missed opportunity to provide concrete skill building skills.
+* Maybe a video example of a tactful conversation in practice
+
+
+### Additional comments/observations
+* Consider diving deeper by having these conversations that have impact at different levels of the social ecology
+* Great job!
+* Would have enjoyed more time!! Love this session - best of my day.
+* Great Job!
+* This was awesome! I loved it
+* One of the most valuable presentations I've been at
+* It would be cool, with all your expertise, to see/do a session on gender vs. sexuality and that topic in public health/health equity context. I would help.
+* Great! Thanks!
+* Excellent job!
+
+
+
+```{r load,}
+# load libraries, set working directory
+library(ggplot2)
+setwd("C:/Users/Molly/Documents/2_Papers/Conferences/PHiR_2015/Evaluation/PHiR_2015_evaluation")
+getwd()
+
+# read in data
+isms <- read.csv('Isms_eval.csv')
+
+# create objects for mean of each item to use in plots
+meana <- mean(isms$a)
+meanb <- mean(isms$b)
+meanc <- mean(isms$c)
+meand <- mean(isms$d)
+meand2 <- mean(isms$d2)
+meane <- mean(isms$e)
+meane2 <- mean(isms$e2)
+meanf <- mean(isms$f)
+meang <- mean(isms$g)
+meanh <- mean(isms$h)
+meani <- mean(isms$i)
+
+```
+
+### Distribution of scale questions
+#### where: 5 = strongly agree, 1= strongly disagree; mean shown as red dashed line
+
+```{r create plots}
+
+ggplot(isms, aes(x=a)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,20)) +
+   labs(title ="Statement: I am better able to identify isms in our society", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meana), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(isms, aes(x=b)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,20)) +
+   labs(title ="Statement: I have a better understanding of how isms function 
+        in our society", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meanb), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(isms, aes(x=c)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,20)) +
+   labs(title ="Statement: I am able to briefly describe the historical impact of racism, sexism
+        heterosexism, and ableism on health", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meanc), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(isms, aes(x=d)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,20)) +
+   labs(title ="Statement: I have increased my comfort level in having conversations about
+        isms", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meand), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(isms, aes(x=e)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,20)) +
+   labs(title ="Statement: I have increased my skills in addressing isms", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meane), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(isms, aes(x=d2)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,20)) +
+   labs(title ="Statement: Presenters were organized/had a clear presentation", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meand2), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(isms, aes(x=e2)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,20)) +
+   labs(title ="Statement: Presenters provided useful information", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meane2), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(isms, aes(x=f)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,22)) +
+   labs(title ="Statement: Presenter/participant interaction was appropriate", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meanf), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(isms, aes(x=g)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,20)) +
+   labs(title ="Statement: Presenters used audio/visual aids well", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meang), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(isms, aes(x=h)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,20)) +
+   labs(title ="Statement: Presenters allotted time well", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meanh), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(isms, aes(x=i)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,20)) +
+   labs(title ="Statement: The session was timely in terms of current public health 
+        practice", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meani), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+```

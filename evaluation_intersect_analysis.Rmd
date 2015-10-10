@@ -1,0 +1,161 @@
+ ---
+title: "Intersectionalism PHiR 2015 Evaluation"
+author: "mgutilla"
+date: "Saturday, October 10, 2015"
+output: html_document
+---
+This is a summary of evaluation data from a Public Health in the Rockies, held in Vail, Colorado September 16-18, 2015 
+
+---------------------------------------------------------------------------
+# Session: *"Intersectionalism: How multiple identities influence health"*.
+
+**Presenters: Molly Gutilla, Erin McKay, Suzuho Shimasaki, Kevin Kamis and Kory Thomas**
+
+## Write-in Responses
+
+### What was the most valuable thing you learned in this session?
+
+* The history/background of intersectionality and how it plays out in public health
+* Watch our assumptions, esp. around data
+* Very interesting concept and application to practice
+* I think the most valuable thing I learned was how the different levels of education effects different races
+* I learned about "ableism", never thought of myself as advantaged, only though of disabled people as "disadvantaged"
+* Complexity of intersectionalities
+* It's easy to make assumptions and these can be barriers to healthcare. Education is important.
+* Terms, talking through difficult topics
+* To look at the whole person and that it isn't all on the surface
+* The definitions of intersectionalities. Still a very new term
+* Intersectionality
+* About the nature of the how disparities might be caused by structures in society
+* Check assumptions, both my own and my clients
+* Made me more aware of assumptions and how they impact and how we interact with people
+* That we should pay attention to an individual and we shouldn't make assumptions
+* Everything
+
+### How could the session be improved?
+*	I just wish I saw the beginning! Conflicting session! Actually, I just thought of something: A lot of the examples seems specific to direct service care. Maybe consider policy examples in the future since that is a powerful way to impact pop. Health and intersectionality of identities needs to be considered when creating/promoting PH policy
+* Excellent
+* Better connection of intersectionalities to everyday activites/work in public health
+* It was great!
+* Shorten it some
+* Less time
+* Make sure a few people don't dominate the conversation
+* Get under our skin a bit
+* Show videos
+
+### Additional comments/observations
+* This was wonderful! Thank you
+* I learned a lot. Thank you
+* Great job!
+* This was a new model for me and helpful
+* I wish there were clearer answers but there are only more questions
+* Good use of research
+* Need handouts for this session because you have GREAT INFO!!
+
+
+```{r load,}
+# load libraries, set working directory
+library(ggplot2)
+setwd("C:/Users/Molly/Documents/2_Papers/Conferences/PHiR_2015/Evaluation/PHiR_2015_evaluation")
+getwd()
+
+# read in data
+inter <- read.csv('Intersect_eval.csv')
+
+# create objects for mean of each item to use in plots
+meana <- mean(inter$a)
+meanb <- mean(inter$b)
+meanc <- mean(inter$c)
+meand <- mean(inter$d)
+meand2 <- mean(inter$d2)
+meane <- mean(inter$e)
+meanf <- mean(inter$f)
+meang <- mean(inter$g)
+meanh <- mean(inter$h)
+meani <- mean(inter$i)
+
+```
+
+### Distribution of scale questions
+#### where: 5 = strongly agree, 1= strongly disagree; mean shown as red dashed line
+
+```{r create plots}
+
+ggplot(inter, aes(x=a)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,17)) +
+   labs(title ="Statement: I am more comfortable discussing cultural identities", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meana), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(inter, aes(x=b)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,17)) +
+   labs(title ="Statement: I have a better understanding of how the intersectionalities of social 
+        identities and interlocking systems of privilege and opression impact health", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meanb), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(inter, aes(x=c)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,17)) +
+   labs(title ="Statement: I have a greater understanding of how my own social identities
+        influence my public health practice", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meanc), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(inter, aes(x=d)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,17)) +
+   labs(title ="Statement: I have new ideas for how public health can better integrate the framework of
+        intersectionality to promote health equity", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meand), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(inter, aes(x=d2)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,17)) +
+   labs(title ="Statement: Presenters were organized/had a clear presentation", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meand2), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(inter, aes(x=e)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,17)) +
+   labs(title ="Statement: Presenters provided useful information", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meane), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(inter, aes(x=f)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,17)) +
+   labs(title ="Statement: Presenter/participant interaction was appropriate", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meanf), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(inter, aes(x=g)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,17)) +
+   labs(title ="Statement: Presenters used audio/visual aids well", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meang), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(inter, aes(x=h)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,17)) +
+   labs(title ="Statement: Presenters allotted time well", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meanh), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(inter, aes(x=i)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,17)) +
+   labs(title ="Statement: The session was timely in terms of current public health 
+        practice", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=meani), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+
+
+```
+

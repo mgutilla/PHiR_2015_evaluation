@@ -1,0 +1,92 @@
+---
+title: "Intersectionalism PHiR 2015 Evaluation"
+author: "mgutilla"
+date: "Monday, September 28, 2015"
+output: word_document
+---
+This is a summary of evaluation data from a Public Health in the Rockies, held in Vail, Colorado September 16-18, 2015 
+session: *"Intersectionalism: How multiple identities influence health"*.
+
+**The presenters were:
+Molly Gutilla
+
+**
+
+## Write-in Responses
+
+### What was the most valuable thing you learned in this session?
+
+* The history/background of intersectionality and how it plays out in public health
+* Watch our assumptions, esp. around data
+* Very interesting concept and application to practice
+* I think the most valuable thing I learned was how the different levels of education effects different races
+* I learned about "ableism", never thought of myself as advantaged, only though of disabled people as "disadvantaged"
+* Complexity of intersectionalities
+* It's easy to make assumptions and these can be barriers to healthcare. Education is important.
+* Terms, talking through difficult topics
+* To look at the whole person and that it isn't all on the surface
+* The definitions of intersectionalities. Still a very new term
+* Intersectionality
+* About the nature of the how disparities might be caused by structures in society
+* Check assumptions, both my own and my clients
+* Made me more aware of assumptions and how they impact and how we interact with people
+* That we should pay attention to an individual and we shouldn't make assumptions
+* Everything
+
+### How could the session be improved?
+*	I just wish I saw the beginning! Conflicting session! Actually, I just thought of something: A lot of the examples seems specific to direct service care. Maybe consider policy examples in the future since that is a powerful way to impact pop. Health and intersectionality of identities needs to be considered when creating/promoting PH policy
+* Excellent
+* Better connection of intersectionalities to everyday activites/work in public health
+* It was great!
+* Shorten it some
+* Less time
+* Make sure a few people don't dominate the conversation
+* Get under our skin a bit
+* Show videos
+
+### Additional comments/observations
+* This was wonderful! Thank you
+* I learned a lot. Thank you
+* Great job!
+* This was a new model for me and helpful
+* I wish there were clearer answers but there are only more questions
+* Good use of research
+* Need handouts for this session because you have GREAT INFO!!
+
+
+```{r load,}
+# load libraries, set working directory
+library(ggplot2)
+library(RColorBrewer)
+setwd('C:/Users/Molly/Documents/2_Papers/Conferences/PHiR 2015/Evaluation')
+getwd()
+
+# read in data
+inter <- read.csv('Isms_eval.csv')
+
+# view summary statsitics for each item
+summary(inter)
+
+
+```
+
+### Distribution of scale questions:
+
+```{r create plots}
+
+ggplot(inter, aes(x=a)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,15)) +
+   labs(title ="Question asked:", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=4.25), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+ggplot(inter, aes(x=b)) +
+  geom_bar(alpha = 0.5, binwidth=1)  + 
+  scale_x_discrete() +
+  scale_y_continuous(limits=c(0,15)) +
+   labs(title ="Question asked:", x = "Score", y = "Count") +
+  geom_vline(aes(xintercept=4.292), colour="#BB0000", linetype="dashed", labels="Mean", show_guide=TRUE) 
+
+```
+

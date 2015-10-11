@@ -7,7 +7,7 @@ output: html_document
 This is a summary of evaluation data from a Public Health in the Rockies, held in Vail, Colorado September 16-18, 2015 
 
 ---------------------------------------------------------------------------
-# Session: *"Intersectionalism: How multiple identities influence health"*.
+# Session: *"Having Conversations about Isms"*.
 
 **Presenters: Molly Gutilla, Erin McKay, Suzuho Shimasaki, and Kory Thomas**
 
